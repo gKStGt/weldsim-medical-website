@@ -934,6 +934,94 @@
         </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section class="contact-section fade-in" id="contact">
+        <div class="section" style="max-width: 800px;">
+            <h2>Unverbindliche Anfrage stellen</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem;">
+                Entdecken Sie die Zukunft der medizinischen Schweißtechnik. Kontaktieren Sie uns für eine exklusive Beratung.
+            </p>
+            
+            <div class="contact-form-container" style="background: var(--card-bg); backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 3rem;">
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="name" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600;">Name *</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 1rem; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;">
+                        </div>
+                        <div class="form-group">
+                            <label for="company" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600;">Unternehmen *</label>
+                            <input type="text" id="company" name="company" required style="width: 100%; padding: 1rem; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="email" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600;">E-Mail *</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 1rem; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600;">Telefon</label>
+                            <input type="tel" id="phone" name="phone" style="width: 100%; padding: 1rem; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="interest" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600;">Interessensbereich *</label>
+                        <select id="interest" name="interest" required style="width: 100%; padding: 1rem; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease;">
+                            <option value="">Bitte wählen...</option>
+                            <option value="herzschrittmacher">Herzschrittmacher & Kardiale Implantate</option>
+                            <option value="orthopaedie">Orthopädische Implantate</option>
+                            <option value="kontaktlinsen">Kontaktlinsen & Ophthalmologie</option>
+                            <option value="chirurgie">Chirurgische Instrumente</option>
+                            <option value="dental">Dentaltechnik</option>
+                            <option value="diagnostik">Diagnostikgeräte</option>
+                            <option value="forschung">Forschung & Entwicklung</option>
+                            <option value="andere">Andere Anwendung</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label for="message" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 600;">Ihre Nachricht *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Beschreiben Sie Ihr Projekt und Ihre Anforderungen..." style="width: 100%; padding: 1rem; border: 1px solid var(--card-border); border-radius: 10px; background: var(--card-bg); color: var(--text-primary); font-size: 1rem; resize: vertical; transition: all 0.3s ease; font-family: inherit;"></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label style="display: flex; align-items: center; color: var(--text-secondary); cursor: pointer;">
+                            <input type="checkbox" required style="margin-right: 0.5rem; transform: scale(1.2);">
+                            <span>Ich stimme der Verarbeitung meiner Daten gemäß der <a href="#privacy" onclick="showPrivacy()" style="color: var(--primary-blue); text-decoration: underline;">Datenschutzerklärung</a> zu. *</span>
+                        </label>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
+                            📧 Anfrage senden
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Contact Info Cards -->
+            <div class="contact-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="contact-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px; padding: 2rem; text-align: center; transition: transform 0.3s ease;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">E-Mail</h3>
+                    <a href="mailto:info@weldsim-medical.com" style="color: var(--primary-blue); text-decoration: none;">info@weldsim-medical.com</a>
+                </div>
+                <div class="contact-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px; padding: 2rem; text-align: center; transition: transform 0.3s ease;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Telefon</h3>
+                    <span style="color: var(--text-secondary);">+49 (0) 123 456 789</span>
+                </div>
+                <div class="contact-card" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px; padding: 2rem; text-align: center; transition: transform 0.3s ease;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Standort</h3>
+                    <span style="color: var(--text-secondary);">Stuttgart, Deutschland</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="section fade-in" id="about">
         <h2>Patientensicherheit im Fokus</h2>
@@ -957,35 +1045,16 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#about">Über uns</a>
                 <a href="#privacy" onclick="showPrivacy()">Datenschutz</a>
                 <a href="#imprint" onclick="showImprint()">Impressum</a>
                 <a href="#terms" onclick="showTerms()">AGB</a>
-                <a href="mailto:info@weldsim-medical.com">✉️ Kontakt</a>
+                <a href="mailto:info@weldsim-medical.com">✉️ E-Mail</a>
             </div>
             <p>&copy; 2025 WeldSim Medical. Revolutionäre Schweißtechnologie für Patientensicherheit.</p>
-            
-            <!-- Contact Information -->
-            <div class="contact-info" style="margin-top: 2rem; padding: 2rem; background: var(--card-bg); border-radius: 15px; border: 1px solid var(--card-border);">
-                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Kontakt & Anfragen</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                    <div>
-                        <strong style="color: var(--primary-blue);">📧 E-Mail:</strong><br>
-                        <a href="mailto:info@weldsim-medical.com" style="color: var(--text-secondary);">info@weldsim-medical.com</a>
-                    </div>
-                    <div>
-                        <strong style="color: var(--primary-blue);">📞 Telefon:</strong><br>
-                        <span style="color: var(--text-secondary);">+49 (0) 123 456 789</span>
-                    </div>
-                    <div>
-                        <strong style="color: var(--primary-blue);">📍 Adresse:</strong><br>
-                        <span style="color: var(--text-secondary);">WeldSim Medical GmbH<br>Medizintechnik-Straße 1<br>12345 Stuttgart, Deutschland</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </footer>
 
@@ -1394,12 +1463,115 @@
             }
         });
 
-        // Close modal on background click
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+        // Contact Form Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const company = formData.get('company');
+            const email = formData.get('email');
+            const phone = formData.get('phone') || 'Nicht angegeben';
+            const interest = formData.get('interest');
+            const message = formData.get('message');
+            
+            // Create email body
+            const emailBody = `
+Neue Anfrage von WeldSim Medical Website
+
+Name: ${name}
+Unternehmen: ${company}
+E-Mail: ${email}
+Telefon: ${phone}
+Interessensbereich: ${interest}
+
+Nachricht:
+${message}
+
+---
+Gesendet über WeldSim Medical Kontaktformular
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@weldsim-medical.com?subject=Anfrage von ${name} (${company})&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            showSuccessMessage();
+        }
+
+        function showSuccessMessage() {
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--medical-green);
+                color: white;
+                padding: 2rem 3rem;
+                border-radius: 15px;
+                box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+                z-index: 10001;
+                text-align: center;
+                font-weight: 600;
+                animation: fadeInScale 0.3s ease;
+            `;
+            successDiv.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                <h3 style="margin-bottom: 0.5rem;">Vielen Dank!</h3>
+                <p>Ihr E-Mail-Programm wird geöffnet.<br>Bitte senden Sie die vorausgefüllte E-Mail ab.</p>
+            `;
+            
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 4000);
+        }
+
+        // Form Input Focus Effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = 'var(--primary-blue)';
+                    this.style.boxShadow = '0 0 0 3px rgba(0, 102, 255, 0.1)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = 'var(--card-border)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Contact card hover effects
+            document.querySelectorAll('.contact-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 102, 255, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
         });
+
+        // Add fadeInScale animation
+        const fadeInScaleStyle = document.createElement('style');
+        fadeInScaleStyle.textContent = `
+            @keyframes fadeInScale {
+                0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            }
+        `;
+        document.head.appendChild(fadeInScaleStyle);
     </script>
 </body>
 </html>
