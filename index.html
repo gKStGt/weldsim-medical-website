@@ -960,14 +960,42 @@
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="#privacy">Datenschutz</a>
-                <a href="#imprint">Impressum</a>
-                <a href="#terms">AGB</a>
-                <a href="mailto:info@weldsim-medical.com">Kontakt</a>
+                <a href="#about">Über uns</a>
+                <a href="#privacy" onclick="showPrivacy()">Datenschutz</a>
+                <a href="#imprint" onclick="showImprint()">Impressum</a>
+                <a href="#terms" onclick="showTerms()">AGB</a>
+                <a href="mailto:info@weldsim-medical.com">✉️ Kontakt</a>
             </div>
             <p>&copy; 2025 WeldSim Medical. Revolutionäre Schweißtechnologie für Patientensicherheit.</p>
+            
+            <!-- Contact Information -->
+            <div class="contact-info" style="margin-top: 2rem; padding: 2rem; background: var(--card-bg); border-radius: 15px; border: 1px solid var(--card-border);">
+                <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Kontakt & Anfragen</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div>
+                        <strong style="color: var(--primary-blue);">📧 E-Mail:</strong><br>
+                        <a href="mailto:info@weldsim-medical.com" style="color: var(--text-secondary);">info@weldsim-medical.com</a>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-blue);">📞 Telefon:</strong><br>
+                        <span style="color: var(--text-secondary);">+49 (0) 123 456 789</span>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-blue);">📍 Adresse:</strong><br>
+                        <span style="color: var(--text-secondary);">WeldSim Medical GmbH<br>Medizintechnik-Straße 1<br>12345 Stuttgart, Deutschland</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Modal for Legal Pages -->
+    <div id="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; backdrop-filter: blur(10px);">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card-bg); backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 3rem; max-width: 800px; max-height: 80vh; overflow-y: auto; width: 90%;">
+            <button onclick="closeModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--text-primary);">✕</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
 
     <script>
         // Theme Toggle with improved functionality
@@ -1262,10 +1290,114 @@
             ticking = false;
         }
 
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
+        // Legal Pages Functions
+        function showPrivacy() {
+            const content = `
+                <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Datenschutzerklärung</h2>
+                <div style="color: var(--text-secondary); line-height: 1.6;">
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">1. Datenschutz auf einen Blick</h3>
+                    <p><strong>Allgemeine Hinweise:</strong> Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">2. Verantwortliche Stelle</h3>
+                    <p>WeldSim Medical GmbH<br>Medizintechnik-Straße 1<br>12345 Stuttgart, Deutschland<br>E-Mail: datenschutz@weldsim-medical.com</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">3. Datenerfassung auf dieser Website</h3>
+                    <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">4. Ihre Rechte</h3>
+                    <p>Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen.</p>
+                    
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">Stand: Januar 2025</p>
+                </div>
+            `;
+            showModal(content);
+        }
+
+        function showImprint() {
+            const content = `
+                <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Impressum</h2>
+                <div style="color: var(--text-secondary); line-height: 1.6;">
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Angaben gemäß § 5 TMG</h3>
+                    <p><strong>WeldSim Medical GmbH</strong><br>
+                    Medizintechnik-Straße 1<br>
+                    12345 Stuttgart<br>
+                    Deutschland</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Kontakt</h3>
+                    <p>Telefon: +49 (0) 123 456 789<br>
+                    E-Mail: info@weldsim-medical.com</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Registereintrag</h3>
+                    <p>Eintragung im Handelsregister<br>
+                    Registergericht: Amtsgericht Stuttgart<br>
+                    Registernummer: HRB 123456</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Umsatzsteuer-ID</h3>
+                    <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
+                    DE 123 456 789</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Geschäftsführung</h3>
+                    <p>Max Mustermann (Geschäftsführer)</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+                    <p>Max Mustermann<br>
+                    Medizintechnik-Straße 1<br>
+                    12345 Stuttgart</p>
+                </div>
+            `;
+            showModal(content);
+        }
+
+        function showTerms() {
+            const content = `
+                <h2 style="color: var(--primary-blue); margin-bottom: 2rem;">Allgemeine Geschäftsbedingungen</h2>
+                <div style="color: var(--text-secondary); line-height: 1.6;">
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">§ 1 Geltungsbereich</h3>
+                    <p>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen WeldSim Medical GmbH und ihren Kunden über die Bereitstellung von Software-Lösungen für digitale Schweißvalidierung in der Medizintechnik.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">§ 2 Leistungen</h3>
+                    <p>WeldSim Medical bietet Software-Lösungen für die digitale Simulation und Validierung von Schweißverfahren in der Medizintechnik. Die konkreten Leistungen ergeben sich aus der jeweiligen Leistungsbeschreibung.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">§ 3 Preise und Zahlungsbedingungen</h3>
+                    <p>Die Preise ergeben sich aus dem jeweiligen Angebot. Alle Preise verstehen sich zuzüglich der gesetzlichen Mehrwertsteuer. Die Zahlung ist innerhalb von 14 Tagen nach Rechnungsstellung fällig.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">§ 4 Vertraulichkeit</h3>
+                    <p>Beide Parteien verpflichten sich, alle im Rahmen der Geschäftsbeziehung bekannt gewordenen vertraulichen Informationen streng vertraulich zu behandeln.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">§ 5 Haftung</h3>
+                    <p>Die Haftung richtet sich nach den gesetzlichen Bestimmungen. Bei leicht fahrlässigen Pflichtverletzungen ist die Haftung auf den typischen, vorhersehbaren Schaden begrenzt.</p>
+                    
+                    <h3 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">§ 6 Anwendbares Recht</h3>
+                    <p>Es gilt ausschließlich deutsches Recht. Gerichtsstand ist Stuttgart.</p>
+                    
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">Stand: Januar 2025</p>
+                </div>
+            `;
+            showModal(content);
+        }
+
+        function showModal(content) {
+            document.getElementById('modal-content').innerHTML = content;
+            document.getElementById('modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
             }
         });
     </script>
